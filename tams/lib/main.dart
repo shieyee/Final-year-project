@@ -15,8 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tender and Asset Management System',
       theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
 
-        primarySwatch: Colors.yellow,
+      primary:  Color.fromARGB(255, 223, 205, 160),
+      secondary:  Color.fromARGB(255, 223, 205, 160),
+      ),
       ),
       home: const SplashScreen(),
     );
