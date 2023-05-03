@@ -5,6 +5,7 @@ import 'package:tams/models/user.dart';
 import 'package:tams/view/screens/assetdetailsscreen.dart';
 import 'package:tams/view/screens/manageasset.dart';
 import 'package:tams/view/screens/listAssetscreen.dart';
+import 'package:tams/view/screens/managetender.dart';
 import 'package:tams/view/screens/supplierScreen.dart';
 
 class ManagerScreen extends StatefulWidget {
@@ -16,22 +17,20 @@ class ManagerScreen extends StatefulWidget {
 }
 
 class _ManagerScreenState extends State<ManagerScreen> {
-
-  int _currentIndex = 0;
   PageController _pageController = PageController();
-  late List<Widget> _screen;
-  void _onPageChanged(int index){
+  late List<Widget> _screen = [
+    ListAssetScreen(user: widget.user),
+    OpenTender()
+  ];
+  int _currentIndex = 0;
+  void _onPageChanged(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
-  }
-  void _onItemTapped(int SelectedIndex){
+  void _onItemTapped(int SelectedIndex) {
     _pageController.jumpToPage(SelectedIndex);
-  }
-   @override
-  void initState() {
-    super.initState();
-    _screen = [
-      ListAssetScreen(user: widget.user),
-    ];
   }
 
   @override
@@ -45,23 +44,19 @@ class _ManagerScreenState extends State<ManagerScreen> {
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
         currentIndex: _currentIndex,
         iconSize: 30,
         items: const [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.auto_awesome),
-            label: 'Asset Details',
-            backgroundColor: Colors.blue),
-            BottomNavigationBarItem(
-            icon: Icon(Icons.auto_fix_high),
-            label: 'Manage Tender',
-            backgroundColor: Colors.blue),
-      ],
-      onTap: (index){
-        setState(() {
-          _currentIndex = index;
-        });
-      },
+          BottomNavigationBarItem(
+              icon: Icon(Icons.auto_awesome),
+              label: 'Asset Details',
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.auto_fix_high),
+              label: 'Manage Tender',
+              backgroundColor: Colors.blue),
+        ],
       ),
     );
   }

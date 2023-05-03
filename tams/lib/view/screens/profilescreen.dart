@@ -216,10 +216,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                               shrinkWrap: true,
                               children: [
-                            MaterialButton(
-                              onPressed: isDisable ? null : _updateNameDialog,
-                              child: const Text("UPDATE NAME"),
-                            ),
+                            // MaterialButton(
+                            //   onPressed: isDisable ? null : _updateNameDialog,
+                            //   child: const Text("UPDATE NAME"),
+                            // ),
                             const Divider(
                               height: 2,
                             ),
@@ -234,17 +234,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             const Divider(
                               height: 2,
                             ),
-                            MaterialButton(
-                              onPressed: _registerAccountDialog,
-                              child: const Text("NEW REGISTRATION"),
-                            ),
+                            // MaterialButton(
+                            //   onPressed: _registerAccountDialog,
+                            //   child: const Text("NEW REGISTRATION"),
+                            // ),
                             const Divider(
                               height: 2,
                             ),
-                            MaterialButton(
-                              onPressed: _loginDialog,
-                              child: const Text("LOGIN"),
-                            ),
+                            // MaterialButton(
+                            //   onPressed: _loginDialog,
+                            //   child: const Text("LOGIN"),
+                            // ),
                             const Divider(
                               height: 2,
                             ),
@@ -358,62 +358,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-       void _updateNameDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          title: const Text(
-            "Change Name?",
-            style: TextStyle(),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                    labelText: 'Name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0))),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-              ),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text(
-                "Yes",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-                String newname = _usernameController.text;
-                _updateName(newname);
-              },
-            ),
-            TextButton(
-              child: const Text(
-                "No",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  //      void _updateNameDialog() {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       // return object of type Dialog
+  //       return AlertDialog(
+  //         shape: const RoundedRectangleBorder(
+  //             borderRadius: BorderRadius.all(Radius.circular(20.0))),
+  //         title: const Text(
+  //           "Change Name?",
+  //           style: TextStyle(),
+  //         ),
+  //         content: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             TextFormField(
+  //               controller: _usernameController,
+  //               decoration: InputDecoration(
+  //                   labelText: 'Name',
+  //                   border: OutlineInputBorder(
+  //                       borderRadius: BorderRadius.circular(5.0))),
+  //               validator: (value) {
+  //                 if (value == null || value.isEmpty) {
+  //                   return 'Please enter your name';
+  //                 }
+  //                 return null;
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: const Text(
+  //               "Yes",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //               String newname = _usernameController.text;
+  //               _updateName(newname);
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: const Text(
+  //               "No",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
   
   void _updateName(String newname) {
         http.post(Uri.parse("${ServerConfig.SERVER}php/update_profile.php"),
@@ -619,87 +619,87 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  void _registerAccountDialog() {
-        showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          title: const Text(
-            "New Account Registration",
-            style: TextStyle(),
-          ),
-          content: const Text("Are you sure?"),
-          actions: <Widget>[
-            TextButton(
-              child: const Text(
-                "Yes",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) => const Registration()));
-              },
-            ),
-            TextButton(
-              child: const Text(
-                "No",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // void _registerAccountDialog() {
+  //       showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         shape: const RoundedRectangleBorder(
+  //             borderRadius: BorderRadius.all(Radius.circular(20.0))),
+  //         title: const Text(
+  //           "New Account Registration",
+  //           style: TextStyle(),
+  //         ),
+  //         content: const Text("Are you sure?"),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: const Text(
+  //               "Yes",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //               Navigator.push(
+  //                   context,
+  //                   MaterialPageRoute(
+  //                       builder: (content) => const Registration()));
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: const Text(
+  //               "No",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
-  void _loginDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          title: const Text(
-            "Login",
-            style: TextStyle(),
-          ),
-          content: const Text("Are you sure?"),
-          actions: <Widget>[
-            TextButton(
-              child: const Text(
-                "Yes",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) => const Login()));
-              },
-            ),
-            TextButton(
-              child: const Text(
-                "No",
-                style: TextStyle(),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // void _loginDialog() {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         shape: const RoundedRectangleBorder(
+  //             borderRadius: BorderRadius.all(Radius.circular(20.0))),
+  //         title: const Text(
+  //           "Login",
+  //           style: TextStyle(),
+  //         ),
+  //         content: const Text("Are you sure?"),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: const Text(
+  //               "Yes",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //               Navigator.push(
+  //                   context,
+  //                   MaterialPageRoute(
+  //                       builder: (content) => const Login()));
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: const Text(
+  //               "No",
+  //               style: TextStyle(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   void _logoutDialog() {
     showDialog(

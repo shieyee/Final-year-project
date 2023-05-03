@@ -15,12 +15,12 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-  String dropdownitem = 'Staff';
-  var items = [
-    'Staff',
-    'Manager',
-    'Supplier',
-  ];
+  // String dropdownitem = 'Staff';
+  // var items = [
+  //   'Staff',
+  //   'Manager',
+  //   'Supplier',
+  // ];
   bool _passwordVisible = true;
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -153,25 +153,25 @@ class _RegistrationState extends State<Registration> {
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(width: 1.0),
                                 ))),
-                        DropdownButtonFormField(
-                          decoration: const InputDecoration(
-                            icon: Icon(Icons.work),
-                            labelText: 'Please select business type',
-                          ),
-                          value: dropdownitem,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: items.map((String items) {
-                            return DropdownMenuItem(
-                              value: items,
-                              child: Text(items),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              dropdownitem = newValue!;
-                            });
-                          },
-                        ),
+                        // DropdownButtonFormField(
+                        //   decoration: const InputDecoration(
+                        //     icon: Icon(Icons.work),
+                        //     labelText: 'Please select business type',
+                        //   ),
+                        //   value: dropdownitem,
+                        //   icon: const Icon(Icons.keyboard_arrow_down),
+                        //   items: items.map((String items) {
+                        //     return DropdownMenuItem(
+                        //       value: items,
+                        //       child: Text(items),
+                        //     );
+                        //   }).toList(),
+                        //   onChanged: (String? newValue) {
+                        //     setState(() {
+                        //       dropdownitem = newValue!;
+                        //     });
+                        //   },
+                        // ),
                         const SizedBox(
                           height: 8,
                         ),

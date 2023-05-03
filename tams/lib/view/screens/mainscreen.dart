@@ -166,56 +166,56 @@ class _MainScreenState extends State<MainScreen> {
             //     ),
             //   ),
             // ),
-      // drawer: Drawer(
-      //   child: ListView(
-      //     children: [
-      //       UserAccountsDrawerHeader(
-      //         accountEmail: Text(widget.user.email
-      //             .toString()), // keep blank text because email is required
-      //         accountName: Row(
-      //           children: <Widget>[
-      //             Container(
-      //               width: 50,
-      //               height: 50,
-      //               decoration: const BoxDecoration(shape: BoxShape.circle),
-      //               child: const CircleAvatar(
-      //                 radius: 64,
-      //                 backgroundColor: Colors.redAccent,
-      //                 child: Icon(
-      //                   Icons.check,
-      //                 ),
-      //               ),
-      //             ),
-      //             Column(
-      //               mainAxisAlignment: MainAxisAlignment.center,
-      //               children: <Widget>[
-      //                 Text(widget.user.username.toString()),
-      //               ],
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //       ListTile(
-      //         title: const Text('Main Screen'),
-      //         onTap: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: (content) =>  MainScreen(user: widget.user)));
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: const Text('Profile'),
-      //         onTap: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: (content) =>  ProfileScreen(user: widget.user)));
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountEmail: Text(widget.user.email
+                  .toString()), // keep blank text because email is required
+              accountName: Row(
+                children: <Widget>[
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: const CircleAvatar(
+                      radius: 64,
+                      backgroundColor: Colors.redAccent,
+                      child: Icon(
+                        Icons.check,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(widget.user.username.toString()),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: const Text('Main Screen'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (content) =>  MainScreen(user: widget.user)));
+              },
+            ),
+            ListTile(
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (content) =>  ProfileScreen(user: widget.user)));
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 
