@@ -27,9 +27,9 @@ class _NewAssetState extends State<NewAsset> {
       TextEditingController();
   final TextEditingController productqtyEditingController =
       TextEditingController();
-  final TextEditingController producttypeEditingController = 
+  final TextEditingController producttypeEditingController =
       TextEditingController();
-final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   File? _image;
   var pathAsset = "assets/images/takephoto.png";
   bool _isChecked = false;
@@ -43,149 +43,160 @@ final _formKey = GlobalKey<FormState>();
         children: [
           GestureDetector(
             onTap: _selectImageDialog,
-          child: Card(
-            color: Color.fromARGB(255, 194, 181, 212),
-            elevation: 5,
-            child: SizedBox(
-              height: 200,
-              width: 200,
-              child: Container(
+            child: Card(
+              color: Color.fromARGB(255, 194, 181, 212),
+              elevation: 5,
+              child: SizedBox(
                 height: 200,
-                decoration:
-                    BoxDecoration(image: DecorationImage(image: _image == null
-                    ? AssetImage(pathAsset)
-                    : FileImage(_image!) as ImageProvider,
-                    fit: BoxFit.scaleDown)),
+                width: 200,
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: _image == null
+                              ? AssetImage(pathAsset)
+                              : FileImage(_image!) as ImageProvider,
+                          fit: BoxFit.scaleDown)),
+                ),
               ),
             ),
           ),
-          ),
           const Text(
-                "Add New Asset",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-              child:Form(
-                key: _formKey,
-                child: Column(children: [
-                TextFormField(
+            "Add New Asset",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                          textInputAction: TextInputAction.next,
+                          controller: productnameEditingController,
+                          validator: (val) => val!.isEmpty || (val.length < 3)
+                              ? "Product name must be longer than 3"
+                              : null,
+                          keyboardType: TextInputType.text,
+                          decoration: const InputDecoration(
+                              labelText: 'Product Name',
+                              labelStyle: TextStyle(),
+                              icon: Icon(Icons.home_repair_service),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 2.0),
+                              ))),
+                      TextFormField(
+                          textInputAction: TextInputAction.next,
+                          validator: (val) => val!.isEmpty || (val.length < 10)
+                              ? "Product description must be longer than 10"
+                              : null,
+                          maxLines: 4,
+                          keyboardType: TextInputType.text,
+                          controller: productdescEditingController,
+                          decoration: const InputDecoration(
+                              labelText: 'Product Description',
+                              alignLabelWithHint: true,
+                              labelStyle: TextStyle(),
+                              icon: Icon(
+                                Icons.article,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(width: 2.0),
+                              ))),
+                      Row(
+                        children: [
+                          Flexible(
+                            flex: 5,
+                            child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                controller: productpriceEditingController,
+                                validator: (val) => val!.isEmpty
+                                    ? "Product price must contain value"
+                                    : null,
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(
+                                    labelText: 'Price/unit',
+                                    labelStyle: TextStyle(),
+                                    icon: Icon(Icons.monetization_on),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(width: 2.0),
+                                    ))),
+                          ),
+                          Flexible(
+                            flex: 5,
+                            child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                controller: productqtyEditingController,
+                                validator: (val) => val!.isEmpty
+                                    ? "Product quantity should be more than 0"
+                                    : null,
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(
+                                    labelText: 'Quantity',
+                                    labelStyle: TextStyle(),
+                                    icon: Icon(Icons.ballot),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(width: 2.0),
+                                    ))),
+                          ),
+                        ],
+                      ),
+                      Row(children: [
+                        Flexible(
+                          flex: 5,
+                          child: TextFormField(
                               textInputAction: TextInputAction.next,
-                              controller: productnameEditingController,
+                              controller: producttypeEditingController,
                               validator: (val) =>
                                   val!.isEmpty || (val.length < 3)
-                                      ? "Product name must be longer than 3"
-                                      : null,
-                              keyboardType: TextInputType.text,
-                              decoration: const InputDecoration(
-                                  labelText: 'Product Name',
-                                  labelStyle: TextStyle(),
-                                  icon: Icon(Icons.home_repair_service),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(width: 2.0),
-                                  ))),
-                                  TextFormField(
-                              textInputAction: TextInputAction.next,
-                              validator: (val) => val!.isEmpty ||
-                                      (val.length < 10)
-                                  ? "Product description must be longer than 10"
-                                  : null,
-                              maxLines: 4,
-                              keyboardType: TextInputType.text,
-                              controller: productdescEditingController,
-                              decoration: const InputDecoration(
-                                  labelText: 'Product Description',
-                                  alignLabelWithHint: true,
-                                  labelStyle: TextStyle(),
-                                  icon: Icon(
-                                    Icons.article,
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(width: 2.0),
-                                  ))),
-                                  Row(
-                            children: [
-                              Flexible(
-                                flex: 5,
-                                child: TextFormField(
-                                    textInputAction: TextInputAction.next,
-                                    controller: productpriceEditingController,
-                                    validator: (val) => val!.isEmpty
-                                        ? "Product price must contain value"
-                                        : null,
-                                    keyboardType: TextInputType.number,
-                                    decoration: const InputDecoration(
-                                        labelText: 'Price/unit',
-                                        labelStyle: TextStyle(),
-                                        icon: Icon(Icons.monetization_on),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(width: 2.0),
-                                        ))),
-                              ),
-                              Flexible(
-                                flex: 5,
-                                child: TextFormField(
-                                    textInputAction: TextInputAction.next,
-                                    controller: productqtyEditingController,
-                                    validator: (val) => val!.isEmpty
-                                        ? "Product quantity should be more than 0"
-                                        : null,
-                                    keyboardType: TextInputType.number,
-                                    decoration: const InputDecoration(
-                                        labelText: 'Quantity',
-                                        labelStyle: TextStyle(),
-                                        icon: Icon(Icons.ballot),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(width: 2.0),
-                                        ))),
-                              ),
-                            ],
-                          ),
-                          Row(children: [
-                            Flexible(
-                              flex: 5,
-                              child: TextFormField(
-                                  textInputAction: TextInputAction.next,
-                                  controller: producttypeEditingController,
-                                  validator: (val) => val!.isEmpty || (val.length < 3)
                                       ? "Type should be longer than 0"
                                       : null,
-                                      keyboardType: TextInputType.text,
-                                  decoration: const InputDecoration(
-                                      labelText: 'Type',
-                                      alignLabelWithHint: true,
-                                      labelStyle: TextStyle(),
-                                      icon: Icon(Icons.interests),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(width: 2.0),
-                                      ))),
-                                      
-                            ),
-                            Flexible(
-                                flex: 5,
-                                child: CheckboxListTile(
-                                  title: const Text("Policy"), // <‐‐ label
-                                  value: _isChecked,
-                                  onChanged: (bool? value) {
-                                    setState(() {
-                                      _isChecked = value!;
-                                    });
-                                  },
-                                )),
-                          ]),
-                          SizedBox(
-                            width: 100,
-                            child: ElevatedButton(
-                              child: const Text('Add'),
-                              onPressed: () => {
-                                _newAssetDialog()
+                              keyboardType: TextInputType.text,
+                              decoration: const InputDecoration(
+                                  labelText: 'Type',
+                                  alignLabelWithHint: true,
+                                  labelStyle: TextStyle(),
+                                  icon: Icon(Icons.interests),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(width: 2.0),
+                                  ))),
+                        ),
+                        Flexible(
+                            flex: 5,
+                            child: CheckboxListTile(
+                              title: const Text("Policy"), // <‐‐ label
+                              value: _isChecked,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  _isChecked = value!;
+                                });
                               },
-                            ),
+                            )),
+                      ]),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () => {_newAssetDialog()},
+                          child: const Text(
+                            'Add',
+                            style: TextStyle(
+                                fontSize: 15,
+                                letterSpacing: 1,
+                                color: Colors.black87),
                           ),
-              ],)))
+                          style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                        ),
+                      )
+                    ],
+                  )))
         ],
       )),
     );
@@ -235,9 +246,8 @@ final _formKey = GlobalKey<FormState>();
     }
   }
 
-  void onGallery() {
-  }
-  
+  void onGallery() {}
+
   Future<void> cropImage() async {
     CroppedFile? croppedFile = await ImageCropper().cropImage(
       sourcePath: _image!.path,
@@ -266,9 +276,9 @@ final _formKey = GlobalKey<FormState>();
       setState(() {});
     }
   }
-  
+
   _newAssetDialog() {
-        if (_image == null) {
+    if (_image == null) {
       Fluttertoast.showToast(
           msg: "Please take picture of the Product",
           toastLength: Toast.LENGTH_SHORT,
@@ -331,7 +341,7 @@ final _formKey = GlobalKey<FormState>();
       },
     );
   }
-  
+
   void insertProductInfo() {
     String productName = productnameEditingController.text;
     String productDesc = productdescEditingController.text;

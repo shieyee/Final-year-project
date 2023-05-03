@@ -133,7 +133,7 @@ class _ManageAssetState extends State<ManageAsset> {
   Future<void> newasset() async {
     await Navigator.push(context,
         MaterialPageRoute(builder: (content) => NewAsset(user: widget.user)));
-    _loadAssets();
+    // _loadAssets();
   }
 
   void _loadAssets() {

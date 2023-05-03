@@ -23,8 +23,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Color.fromARGB(255, 194, 181, 212),
       appBar: AppBar(actions: [
         IconButton(
-            onPressed: registrationform, icon: Icon(Icons.app_registration)),
-        IconButton(onPressed: loginform, icon: Icon(Icons.login)),
+            onPressed: profilepage, icon: Icon(Icons.person)),
       ]),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -195,24 +194,6 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
-            ListTile(
-              title: const Text('Main Screen'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) =>  MainScreen(user: widget.user)));
-              },
-            ),
-            ListTile(
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) =>  ProfileScreen(user: widget.user)));
-              },
-            ),
           ],
         ),
       ),
@@ -239,15 +220,8 @@ class _MainScreenState extends State<MainScreen> {
         MaterialPageRoute(builder: (content) => const SupplierScreen()));
   }
 
-  void registrationform() {
-    Navigator.pop(context);
+  void profilepage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (content) => const Registration()));
-  }
-
-  void loginform() {
-    Navigator.pop(context);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (content) => const Login()));
+        context, MaterialPageRoute(builder: (content) =>  ProfileScreen(user: widget.user)));
   }
 }

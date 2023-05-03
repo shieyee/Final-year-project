@@ -56,6 +56,10 @@ class _ManagerScreenState extends State<ManagerScreen> {
               icon: Icon(Icons.auto_fix_high),
               label: 'Manage Tender',
               backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.auto_fix_high),
+              label: 'Pending Tender',
+              backgroundColor: Colors.blue),
         ],
       ),
     );

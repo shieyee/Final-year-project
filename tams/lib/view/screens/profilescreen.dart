@@ -63,58 +63,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       resWidth = screenWidth * 0.75;
     }
     return WillPopScope(
-        onWillPop: () async => false,
+        onWillPop: () async => true,
         child: Scaffold(
-          drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-              accountEmail: Text(widget.user.email
-                  .toString()), // keep blank text because email is required
-              accountName: Row(
-                children: <Widget>[
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: const BoxDecoration(shape: BoxShape.circle),
-                    child: const CircleAvatar(
-                      radius: 64,
-                      backgroundColor: Colors.redAccent,
-                      child: Icon(
-                        Icons.check,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(widget.user.username.toString()),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              title: const Text('Main Screen'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) =>  MainScreen(user: widget.user)));
-              },
-            ),
-            ListTile(
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (content) =>  ProfileScreen(user: widget.user)));
-              },
-            ),
-          ],
-        ),
-      ),
+          backgroundColor: Color.fromARGB(255, 194, 181, 212),
             appBar: AppBar(title: const Text("Profile")),
             body: Column(children: [
               Padding(
@@ -201,7 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Container(
                         width: screenWidth,
                         alignment: Alignment.center,
-                        color: Theme.of(context).backgroundColor,
+                        color: Color.fromARGB(255, 223, 205, 160),
                         child: const Padding(
                           padding: EdgeInsets.fromLTRB(0, 2, 0, 2),
                           child: Text("PROFILE SETTINGS",
