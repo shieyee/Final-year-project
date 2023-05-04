@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tams/models/user.dart';
 import 'package:tams/view/screens/loginscreen.dart';
 import 'package:http/http.dart' as http;
+import 'package:tams/view/screens/loginscreenn.dart';
 import 'package:tams/view/screens/mainscreen.dart';
 import 'package:tams/view/screens/registerscreen.dart';
 import 'package:tams/view/shared/config.dart';
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
         () => Navigator.push(context,
-            MaterialPageRoute(builder: (content) => const Login())));
+            MaterialPageRoute(builder: (content) => const LoginScreen())));
   }
 
   @override

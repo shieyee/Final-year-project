@@ -40,6 +40,7 @@ class _LoginState extends State<Login> {
       cardwidth = 400.00;
     }
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 194, 181, 212),
       appBar: AppBar(
           title: const Text("Tender and Asset Management System",
               style: TextStyle(fontSize: 17))),

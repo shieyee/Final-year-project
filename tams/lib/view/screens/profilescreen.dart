@@ -12,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tams/models/user.dart';
 import 'package:tams/view/screens/loginscreen.dart';
+import 'package:tams/view/screens/loginscreenn.dart';
 import 'package:tams/view/screens/mainscreen.dart';
 import 'package:tams/view/screens/registerscreen.dart';
 import 'package:tams/view/shared/config.dart';
@@ -688,7 +689,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (content) => Login()));
+                        builder: (content) => LoginScreen()));
               },
             ),
             TextButton(

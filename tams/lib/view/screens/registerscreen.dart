@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:tams/view/screens/loginscreen.dart';
+import 'package:tams/view/screens/loginscreenn.dart';
 import 'package:tams/view/shared/config.dart';
 import 'package:ndialog/ndialog.dart';
 
@@ -31,9 +32,7 @@ class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text("Tender and Asset Management System",
-              style: TextStyle(fontSize: 17))),
+      backgroundColor: Color.fromARGB(255, 194, 181, 212),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -223,7 +222,7 @@ class _RegistrationState extends State<Registration> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => const Login()))
+                              builder: (BuildContext context) => const LoginScreen()))
                     },
                     child: const Text(
                       "Login here",
@@ -270,11 +269,6 @@ class _RegistrationState extends State<Registration> {
   }
 
   void _registerAccount() {
-    // Navigator.pop(context);
-    //             Navigator.push(
-    //                 context,
-    //                 MaterialPageRoute(
-    //                     builder: (content) => const Login()));
     String username = _usernameController.text;
     String email = _emailController.text;
     String contactno = _contactnoController.text;
