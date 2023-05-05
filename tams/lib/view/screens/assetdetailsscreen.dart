@@ -134,14 +134,14 @@ class _AssetDetailsState extends State<AssetDetails> {
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-                        Text('Staff Id',
+                        Text('Product Id',
                             style: TextStyle(
                                 fontSize: 18.0, fontWeight: FontWeight.bold))
                       ]),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("${widget.user.id}",
+                        Text("${widget.asset.productId}",
                             style: const TextStyle(fontSize: 17.0))
                       ]),
                 ]),

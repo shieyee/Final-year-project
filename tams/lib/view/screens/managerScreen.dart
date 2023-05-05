@@ -20,7 +20,7 @@ class _ManagerScreenState extends State<ManagerScreen> {
   PageController _pageController = PageController();
   late List<Widget> _screen = [
     ListAssetScreen(user: widget.user),
-    OpenTender()
+    OpenTender(user: widget.user)
   ];
   int _currentIndex = 0;
   void _onPageChanged(int index) {
