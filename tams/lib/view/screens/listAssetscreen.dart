@@ -9,6 +9,7 @@ import 'package:tams/models/asset.dart';
 import 'package:tams/models/user.dart';
 import 'package:tams/view/screens/assetdetailsscreen.dart';
 import 'package:tams/view/screens/manageasset.dart';
+import 'package:tams/view/screens/newtenderscreen.dart';
 import 'package:tams/view/shared/config.dart';
 import 'package:http/http.dart' as http;
 
@@ -66,14 +67,7 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 194, 181, 212),
           appBar: AppBar(title: const Text("Asset Listing"), 
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {
-                _loadSearchDialog();
-              },
-            ),
-          ]),
+          ),
           body: assetList.isEmpty
               ? Center(
                   child: Text(titlecenter,
@@ -89,6 +83,23 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
+                    ElevatedButton(
+              onPressed: _loadSearchDialog,
+              child: Text(
+                "Search Product Id to Open Tender",
+                style: TextStyle(
+                  fontSize: 15,
+                  letterSpacing: 1,
+                  color: Colors.black87,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
                     const SizedBox(
                       height: 4,
                     ),
@@ -154,9 +165,9 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           if ((curpage - 1) == index) {
-                            color = Colors.blue;
+                            color = Color.fromARGB(255, 159, 145, 110);
                           } else {
-                            color = Colors.black;
+                            color = Colors.grey;
                           }
                           return TextButton(
                               onPressed: () =>
@@ -174,7 +185,7 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
   }
   
   void _loadsearchAsset(String search, int pageno) {
-        curpage = pageno;
+    curpage = pageno;
     numofpage ?? 1;
 
     http
@@ -226,7 +237,7 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
             builder: (context, StateSetter setState) {
               return AlertDialog(
                 title: const Text(
-                  "Search Assets",
+                  "Search Product Id",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -239,7 +250,7 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
                       TextField(
                         controller: searchController,
                         decoration: InputDecoration(
-                            labelText: 'Search',
+                            labelText: 'Product Id',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0))),
                       ),
@@ -276,10 +287,9 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
     Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (content) => AssetDetails(
+                builder: (content) => NewTender(
                       user: widget.user,
                       asset: asset,
-                      
                     )));
     // if (widget.user.id == "0") {
     //   Fluttertoast.showToast(
