@@ -8,6 +8,8 @@ class Tender {
   String? productType;
   String? productDate;
   String? tenderId;
+  String? tenderStatus;
+  String? tenderPending;
 
   Tender(
       {this.productId,
@@ -18,7 +20,9 @@ class Tender {
       this.productQty,
       this.productType,
       this.productDate,
-      this.tenderId});
+      this.tenderId,
+      this.tenderStatus,
+      this.tenderPending,});
 
   Tender.fromJson(Map<String, dynamic> json) {
     productId = json['product_id'];
@@ -30,6 +34,8 @@ class Tender {
     productType = json['product_type'];
     productDate = json['product_date'];
     tenderId = json['tender_id'];
+    tenderStatus = json['tender_status'];
+    tenderPending = json['tender_pending'];
   }
 
   Map<String, dynamic> toJson() {
@@ -43,6 +49,8 @@ class Tender {
     data['product_type'] = this.productType;
     data['product_date'] = this.productDate;
     data['tender_id'] = this.tenderId;
+    data['tender_status'] = this.tenderStatus;
+    data['tender_pending'] = this.tenderPending;
     return data;
   }
 }

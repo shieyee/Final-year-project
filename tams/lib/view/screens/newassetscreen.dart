@@ -62,7 +62,7 @@ class _NewAssetState extends State<NewAsset> {
             ),
           ),
           const Text(
-            "Add New Asset",
+            "New Asset Details",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,

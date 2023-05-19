@@ -217,7 +217,7 @@ class _MainScreenState extends State<MainScreen> {
 
   void supplierpage() {
     Navigator.push(context,
-        MaterialPageRoute(builder: (content) => const SupplierScreen()));
+        MaterialPageRoute(builder: (content) =>  SupplierScreen(user: widget.user)));
   }
 
   void profilepage() {

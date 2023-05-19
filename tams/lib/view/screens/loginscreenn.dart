@@ -34,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isChecked = false;
   late String _username = '';
   late String _password = '';
+  final bool _passwordVisible = true;
 
   @override
   void dispose() {
@@ -102,15 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               RoundedButton(
                                   text: 'LOGIN',
                                   press: () async {
-                                    if (_formKey.currentState!.validate()) {
-                                      if (_isChecked) {
-                                        final prefs = await SharedPreferences
-                                            .getInstance();
-                                        prefs.setString('username', _username);
-                                        prefs.setString('password', _password);
-                                         _loginUser();
-                                      }
-                                    }
+                                         _loginUser();                       
                                   }),
                               const SizedBox(
                                 height: 10,

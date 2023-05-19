@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:tams/models/user.dart';
-import 'package:tams/view/screens/assetdetailsscreen.dart';
+import 'package:tams/view/screens/pendingtender.dart';
+import 'package:tams/view/screens/tenderAdsScreen.dart';
 import 'package:tams/view/screens/manageasset.dart';
-import 'package:tams/view/screens/listAssetscreen.dart';
+import 'package:tams/view/screens/openTenderscreen.dart';
 import 'package:tams/view/screens/managetender.dart';
 import 'package:tams/view/screens/supplierScreen.dart';
+import 'package:tams/view/screens/tenderStatus.dart';
 
 class ManagerScreen extends StatefulWidget {
   final User user;
@@ -19,8 +21,9 @@ class ManagerScreen extends StatefulWidget {
 class _ManagerScreenState extends State<ManagerScreen> {
   PageController _pageController = PageController();
   late List<Widget> _screen = [
-    ListAssetScreen(user: widget.user),
-    OpenTender(user: widget.user)
+    OpenTenderScreen(user: widget.user),
+    ManageTender(user: widget.user),
+    PendingTender(user: widget.user)
   ];
   int _currentIndex = 0;
   void _onPageChanged(int index) {
@@ -50,7 +53,7 @@ class _ManagerScreenState extends State<ManagerScreen> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.auto_awesome),
-              label: 'Asset Details',
+              label: 'Open Tender',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.auto_fix_high),

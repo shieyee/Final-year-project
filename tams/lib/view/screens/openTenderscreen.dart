@@ -7,23 +7,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:tams/models/asset.dart';
 import 'package:tams/models/user.dart';
-import 'package:tams/view/screens/assetdetailsscreen.dart';
+import 'package:tams/view/screens/tenderAdsScreen.dart';
 import 'package:tams/view/screens/manageasset.dart';
 import 'package:tams/view/screens/newtenderscreen.dart';
 import 'package:tams/view/shared/config.dart';
 import 'package:http/http.dart' as http;
 
-class ListAssetScreen extends StatefulWidget {
+class OpenTenderScreen extends StatefulWidget {
   final User user;
-  const ListAssetScreen({
+  const OpenTenderScreen({
     super.key, required this.user,
   });
 
   @override
-  State<ListAssetScreen> createState() => _ListAssetScreenState();
+  State<OpenTenderScreen> createState() => _OpenTenderScreenState();
 }
 
-class _ListAssetScreenState extends State<ListAssetScreen> {
+class _OpenTenderScreenState extends State<OpenTenderScreen> {
   TextEditingController searchController = TextEditingController();
   String search = "all";
   late double screenHeight, screenWidth, resWidth;
@@ -66,7 +66,7 @@ class _ListAssetScreenState extends State<ListAssetScreen> {
       onWillPop: () async => true,
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 194, 181, 212),
-          appBar: AppBar(title: const Text("Asset Listing"), 
+          appBar: AppBar(title: const Text("Open Tender"), 
           ),
           body: assetList.isEmpty
               ? Center(

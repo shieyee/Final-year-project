@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
+import 'package:tams/models/user.dart';
+import 'package:tams/view/screens/tenderAdsScreen.dart';
+import 'package:tams/view/screens/tenderStatus.dart';
 
 class SupplierScreen extends StatefulWidget {
-  const SupplierScreen({super.key});
+ final User user;
+  const SupplierScreen({super.key, required this.user});
 
   @override
   State<SupplierScreen> createState() => _SupplierScreenState();
@@ -13,6 +17,8 @@ class SupplierScreen extends StatefulWidget {
 class _SupplierScreenState extends State<SupplierScreen> {
   PageController _pageController = PageController();
   late List<Widget> _screen = [
+    TenderAds(user: widget.user),
+    TenderStatus(user: widget.user)
   ];
   int _currentIndex = 0;
   void _onPageChanged(int index) {
@@ -29,8 +35,6 @@ class _SupplierScreenState extends State<SupplierScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 194, 181, 212),
-      appBar:
-          AppBar(title: const Text("Supplier", style: TextStyle(fontSize: 17))),
       body: PageView(
         controller: _pageController,
         children: _screen,
